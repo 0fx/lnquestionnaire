@@ -1,0 +1,18 @@
+server:
+  port: 7777
+spring:
+  profiles:
+    include: pwd
+  application:
+    name: ln-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${uri}
+          username: ${username}
+          password: ${password}
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/

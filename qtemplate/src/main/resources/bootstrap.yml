@@ -1,0 +1,15 @@
+server:
+  port: 5000
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
+spring:
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: ln-config
+      profile: status
+  application:
+    name: application
