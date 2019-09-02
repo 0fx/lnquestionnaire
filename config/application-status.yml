@@ -8,4 +8,3 @@ web:
       msg: error template not found
     formatError:
       code: 4002
-      msg: format error

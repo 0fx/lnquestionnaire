@@ -19,8 +19,6 @@ import java.util.Objects;
 public class QuestionTemplateController {
     @Value("${web.status.formatError.code}")
     private Integer formatErrorCode;
-    @Value("${web.status.formatError.msg}")
-    private String formatErrorMsg;
     @Autowired
     private QuestionTemplateService questionTemplateService;
     @GetMapping("/questionTemplate/{name}")
@@ -30,7 +28,7 @@ public class QuestionTemplateController {
     @PostMapping("/questionTemplate/Choice")
     public TransData setName(@Validated(QuestionGroup.Choice.class) @RequestBody Choice choice, BindingResult bindingResult){
         if (bindingResult.hasErrors()) {
-            return ResponseFactory.getFailedResponse(formatErrorCode,formatErrorMsg+":"+ Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
+            return ResponseFactory.getFailedResponse(formatErrorCode,Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
         }
         choice.
     }

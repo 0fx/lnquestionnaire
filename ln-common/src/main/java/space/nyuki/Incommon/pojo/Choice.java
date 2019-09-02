@@ -7,7 +7,7 @@ import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Choice {
-    @NotNull()
+    @NotNull(message = "标题不能为空")
     private String title;
     private Map<String,Boolean> choice;
     private Boolean multi;
