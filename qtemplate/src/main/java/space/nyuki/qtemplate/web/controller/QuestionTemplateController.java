@@ -1,18 +1,37 @@
 package space.nyuki.qtemplate.web.controller;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+import space.nyuki.Incommon.group.QuestionGroup;
+import space.nyuki.Incommon.pojo.Choice;
+import space.nyuki.lncommon.dto.TransData;
+import space.nyuki.lncommon.factory.ResponseFactory;
+import space.nyuki.qtemplate.service.QuestionTemplateService;
+
+import javax.validation.Validation;
+import java.util.Objects;
 
 @RestController
 public class QuestionTemplateController {
-    //    @GetMapping("/questionTemplate/{name")
-    @Value("${web.status.success.msg}")
-    private String siteName;
-
-    @GetMapping("/config/get")
-    public String getName() {
-        return siteName;
+    @Value("${web.status.formatError.code}")
+    private Integer formatErrorCode;
+    @Value("${web.status.formatError.msg}")
+    private String formatErrorMsg;
+    @Autowired
+    private QuestionTemplateService questionTemplateService;
+    @GetMapping("/questionTemplate/{name}")
+    public TransData getName(@PathVariable String name) throws IllegalAccessException, InstantiationException, ClassNotFoundException {
+        return ResponseFactory.getSuccessResponse(questionTemplateService.getQuestionTemplateInstance(name));
+    }
+    @PostMapping("/questionTemplate/Choice")
+    public TransData setName(@Validated(QuestionGroup.Choice.class) @RequestBody Choice choice, BindingResult bindingResult){
+        if (bindingResult.hasErrors()) {
+            return ResponseFactory.getFailedResponse(formatErrorCode,formatErrorMsg+":"+ Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
+        }
+        choice.
     }
 }

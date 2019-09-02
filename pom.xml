@@ -23,6 +23,7 @@
         <dependency>
             <groupId>space.nyuki</groupId>
             <artifactId>ln-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
     <build>
@@ -37,5 +38,6 @@
         <module>ln-eureka</module>
         <module>qtemplate</module>
         <module>ln-common</module>
+        <module>ln-config</module>
     </modules>
 </project>

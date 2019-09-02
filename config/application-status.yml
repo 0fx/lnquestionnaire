@@ -1,0 +1,11 @@
+web:
+  status:
+    success:
+      code: 200
+      msg: success
+    templateNotFound:
+      code: 4001
+      msg: error template not found
+    formatError:
+      code: 4002
+      msg: format error
