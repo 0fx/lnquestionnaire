@@ -1,28 +1,24 @@
-package space.nyuki.qtemplate.handler;
+package space.nyuki.qtable.handler;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import space.nyuki.lncommon.dto.TransData;
-import space.nyuki.lncommon.factory.ResponseFactory;
 import space.nyuki.lncommon.exception.FormatNotCorrectException;
 import space.nyuki.lncommon.exception.TemplateNotFoundException;
+import space.nyuki.lncommon.factory.ResponseFactory;
 
+/**
+ * @author ning
+ * @createTime 2019/9/3 下午4:51
+ * @description
+ */
 @RestControllerAdvice
 public class MyExceptionHandler {
-    @Value("${web.status.templateNotFound.code}")
-    private Integer templateNotFoundCode;
-    @Value("${web.status.templateNotFound.msg}")
-    private String templateNotFoundMsg;
     @Value("${web.status.formatError.code}")
     private Integer formatErrorCode;
-    @ExceptionHandler(TemplateNotFoundException.class)
-    public TransData templateNotFoundException(){
-        return ResponseFactory.getFailedResponse(templateNotFoundCode,templateNotFoundMsg);
-    }
     @ExceptionHandler(FormatNotCorrectException.class)
     public TransData formatNotCorrectException(FormatNotCorrectException e){
         return ResponseFactory.getFailedResponse(formatErrorCode,e.getMessage());
     }
-
 }

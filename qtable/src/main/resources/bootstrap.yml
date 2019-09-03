@@ -1,0 +1,18 @@
+server:
+  port: 5001
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
+spring:
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: ln-config
+      profile: status
+  application:
+    name: application
+  data:
+    mongodb:
+      uri: mongodb://qtable:123@127.0.0.1:27017/questionTable

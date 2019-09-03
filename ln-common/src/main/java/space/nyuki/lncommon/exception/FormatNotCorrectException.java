@@ -1,4 +1,4 @@
-package space.nyuki.qtemplate.exception;
+package space.nyuki.lncommon.exception;
 
 /**
  * @author ning

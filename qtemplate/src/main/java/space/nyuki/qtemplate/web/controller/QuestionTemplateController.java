@@ -10,6 +10,7 @@ import space.nyuki.lncommon.pojo.Choice;
 import space.nyuki.lncommon.dto.TransData;
 import space.nyuki.lncommon.factory.ResponseFactory;
 import space.nyuki.qtemplate.service.QuestionTemplateService;
+import static space.nyuki.lncommon.utils.ValidUtils.validQuestion;
 
 
 @RestController
@@ -22,22 +23,22 @@ public class QuestionTemplateController {
     }
     @PostMapping("/valid/Choice")
     public TransData validChoice(@Validated(QuestionGroup.Choice.class) @RequestBody Choice choice, BindingResult bindingResult){
-        questionTemplateService.validQuestion(bindingResult);
+        validQuestion(bindingResult);
         return ResponseFactory.getSuccessResponse();
     }
     @PostMapping("/valid/ChoiceWithComment")
     public TransData validChoiceWithComment(@Validated(QuestionGroup.ChoiceWithComment.class) @RequestBody Choice choice, BindingResult bindingResult){
-        questionTemplateService.validQuestion(bindingResult);
+        validQuestion(bindingResult);
         return ResponseFactory.getSuccessResponse();
     }
     @PostMapping("/valid/Comment")
     public TransData validComment(@Validated(QuestionGroup.Comment.class) @RequestBody Choice choice, BindingResult bindingResult){
-        questionTemplateService.validQuestion(bindingResult);
+        validQuestion(bindingResult);
         return ResponseFactory.getSuccessResponse();
     }
     @PostMapping("/valid/DateChoice")
     public TransData setName(@Validated(QuestionGroup.DateChoice.class) @RequestBody Choice choice, BindingResult bindingResult){
-        questionTemplateService.validQuestion(bindingResult);
+        validQuestion(bindingResult);
         return ResponseFactory.getSuccessResponse();
     }
 }

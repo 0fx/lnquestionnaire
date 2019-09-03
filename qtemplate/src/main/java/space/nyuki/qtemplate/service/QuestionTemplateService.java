@@ -2,8 +2,8 @@ package space.nyuki.qtemplate.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
-import space.nyuki.qtemplate.exception.FormatNotCorrectException;
-import space.nyuki.qtemplate.exception.TemplateNotFoundException;
+import space.nyuki.lncommon.exception.FormatNotCorrectException;
+import space.nyuki.lncommon.exception.TemplateNotFoundException;
 
 import java.util.List;
 import java.util.Objects;
@@ -21,10 +21,4 @@ public class QuestionTemplateService {
             throw new TemplateNotFoundException();
         }
     }
-    public void validQuestion(BindingResult result){
-        if (result.hasErrors()) {
-            throw new FormatNotCorrectException(Objects.requireNonNull(result.getFieldError()).getDefaultMessage());
-        }
-    }
-
 }
