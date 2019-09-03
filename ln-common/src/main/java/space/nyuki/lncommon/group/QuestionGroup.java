@@ -1,4 +1,4 @@
-package space.nyuki.Incommon.group;
+package space.nyuki.lncommon.group;
 
 import javax.validation.groups.Default;
 

@@ -39,5 +39,6 @@
         <module>qtemplate</module>
         <module>ln-common</module>
         <module>ln-config</module>
+        <module>qtable</module>
     </modules>
 </project>

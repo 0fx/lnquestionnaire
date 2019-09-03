@@ -5,6 +5,6 @@ web:
       msg: success
     templateNotFound:
       code: 4001
-      msg: error template not found
+      msg: template not found
     formatError:
       code: 4002

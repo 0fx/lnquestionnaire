@@ -1,6 +1,6 @@
 package space.nyuki.qtemplate.template;
 
-import space.nyuki.Incommon.pojo.Choice;
+import space.nyuki.lncommon.pojo.Choice;
 
 import java.sql.Timestamp;
 

@@ -12,6 +12,8 @@ spring:
           uri: ${uri}
           username: ${username}
           password: ${password}
+          search-paths: config
+          default-label: dev
 eureka:
   client:
     service-url:
