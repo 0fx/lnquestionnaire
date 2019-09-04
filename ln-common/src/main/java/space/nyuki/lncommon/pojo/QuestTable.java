@@ -29,7 +29,6 @@ public class QuestTable {
     private String createUser;
     private List<Choice> choices;
     private String serialCode;
-    private byte isDelete;
 
     public QuestTable() {
     }
@@ -72,14 +71,6 @@ public class QuestTable {
 
     public void setSerialCode(String serialCode) {
         this.serialCode = serialCode;
-    }
-
-    public byte getIsDelete() {
-        return isDelete;
-    }
-
-    public void setIsDelete(byte isDelete) {
-        this.isDelete = isDelete;
     }
 
     @Override

@@ -6,8 +6,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import space.nyuki.lncommon.dto.TransData;
-import space.nyuki.lncommon.factory.ResponseFactory;
-import space.nyuki.lncommon.group.QuestionGroup;
 import space.nyuki.lncommon.pojo.Choice;
 
 /**

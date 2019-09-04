@@ -8,3 +8,5 @@ web:
       msg: template not found
     formatError:
       code: 4002
+    redisError:
+      code: 5001

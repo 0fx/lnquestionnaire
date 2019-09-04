@@ -11,6 +11,7 @@ import org.springframework.data.redis.serializer.RedisSerializer;
  * @createTime 2019/9/3 下午5:03
  * @description
  */
+@Configuration
 public class RedisConfig {
     @Bean("objectRedisTemplate")
     public RedisTemplate<String,Object> getObjectRedisTemplate(RedisConnectionFactory factory){
