@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class QuestTable {
     @NotNull(
-            message="调查表名不能为空",
+            message = "调查表名不能为空",
             groups = {
                     TableGroup.CreateTable.class
             }
@@ -21,13 +21,13 @@ public class QuestTable {
     private String tableName;
     private Timestamp createDate;
     @NotNull(
-            message="创建用户不能为空",
+            message = "创建用户不能为空",
             groups = {
                     TableGroup.CreateTable.class
             }
     )
     private String createUser;
-    private List<Choice> choices;
+    private List<Inquiry> inquiries;
     private String serialCode;
 
     public QuestTable() {
@@ -57,13 +57,6 @@ public class QuestTable {
         this.createUser = createUser;
     }
 
-    public List<Choice> getChoices() {
-        return choices;
-    }
-
-    public void setChoices(List<Choice> choices) {
-        this.choices = choices;
-    }
 
     public String getSerialCode() {
         return serialCode;
@@ -73,14 +66,11 @@ public class QuestTable {
         this.serialCode = serialCode;
     }
 
-    @Override
-    public String toString() {
-        return "QuestTable{" +
-                "tableName='" + tableName + '\'' +
-                ", createDate=" + createDate +
-                ", createUser='" + createUser + '\'' +
-                ", choices=" + choices +
-                ", serialCode='" + serialCode + '\'' +
-                '}';
+    public List<Inquiry> getInquiries() {
+        return inquiries;
+    }
+
+    public void setInquiries(List<Inquiry> inquiries) {
+        this.inquiries = inquiries;
     }
 }

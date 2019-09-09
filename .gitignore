@@ -31,4 +31,4 @@ build/
 .vscode/
 
 ### password ###
-application-pwd.yml
+**/application-pwd.yml

@@ -1,24 +1,28 @@
 package space.nyuki.qtemplate.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.BindingResult;
-import space.nyuki.lncommon.exception.FormatNotCorrectException;
 import space.nyuki.lncommon.exception.TemplateNotFoundException;
+import space.nyuki.lncommon.pojo.question.InquiryType;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
-
-import static space.nyuki.qtemplate.utils.FileUtil.getAllTemplate;
 
 @Service
 public class QuestionTemplateService {
 
-    public Object getQuestionTemplateInstance(String type) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        List<String> allTemplate = getAllTemplate();
-        if (allTemplate.contains(type+"Template")){
-            return Class.forName("space.nyuki.qtemplate.template."+type+"Template").newInstance();
-        }else {
+    @Autowired
+    private Map<String,InquiryType> inquiryTypes;
+
+    public InquiryType getQuestionTemplateInstance(String type) {
+        InquiryType inquiryType = inquiryTypes.get(type);
+        if (Objects.isNull(inquiryType)) {
             throw new TemplateNotFoundException();
         }
+        return inquiryType;
+    }
+    public Map<String,InquiryType> getInquiryTypes(){
+        return inquiryTypes;
     }
 }

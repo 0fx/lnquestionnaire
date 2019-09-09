@@ -1,12 +1,9 @@
 package space.nyuki.qtable.service;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import space.nyuki.lncommon.dto.TransData;
-import space.nyuki.lncommon.pojo.Choice;
 
 /**
  * @author ning
@@ -16,11 +13,11 @@ import space.nyuki.lncommon.pojo.Choice;
 @FeignClient("ln-template")
 public interface ValidService {
     @PostMapping("/valid/Choice")
-    TransData validChoice(@RequestBody Choice choice);
+    TransData validChoice(@RequestBody Question question);
     @PostMapping("/valid/ChoiceWithComment")
-    TransData validChoiceWithComment(@RequestBody Choice choice);
+    TransData validChoiceWithComment(@RequestBody Question question);
     @PostMapping("/valid/Comment")
-    TransData validComment(@RequestBody Choice choice);
+    TransData validComment(@RequestBody Question question);
     @PostMapping("/valid/DateChoice")
-    TransData validDateChoice(@RequestBody Choice choice);
+    TransData validDateChoice(@RequestBody Question question);
 }

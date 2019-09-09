@@ -8,8 +8,7 @@ import javax.validation.groups.Default;
  * @description
  */
 public class QuestionGroup implements Default {
-    public interface Choice{}
-    public interface ChoiceWithComment{};
-    public interface Comment{}
-    public interface DateChoice{}
+    public interface Input{}
+    public interface view{}
+    public interface Get{}
 }
